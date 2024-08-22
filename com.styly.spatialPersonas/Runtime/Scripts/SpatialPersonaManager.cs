@@ -22,7 +22,8 @@ public class SpatialPersonaManager : MonoBehaviour
         startSharePlayButton.onClick.AddListener(PrepareSession);
         stopSharePlayButton.onClick.AddListener(EndSession);
 
-#if UNITY_VISIONOS && !UNITY_EDITOR
+#if (UNITY_VISIONOS || UNITY_IOS) && !UNITY_EDITOR
+
         return;
 #endif
 
@@ -32,7 +33,7 @@ public class SpatialPersonaManager : MonoBehaviour
     {
     }
 
-#if UNITY_IOS || UNITY_VISIONOS && !UNITY_EDITOR
+#if (UNITY_VISIONOS || UNITY_IOS) && !UNITY_EDITOR
     // real code on device will call Obj-C and Swift codes here instead
 #else
 
@@ -58,7 +59,7 @@ public class SpatialPersonaManager : MonoBehaviour
     }
 
 
-#if UNITY_VISIONOS && !UNITY_EDITOR
+#if (UNITY_VISIONOS || UNITY_IOS) && !UNITY_EDITOR
 
     [DllImport("__Internal")]
     static extern void PrepareSession();
