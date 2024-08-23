@@ -72,7 +72,7 @@ public class SpatialPersonaManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-#if UNITY_IOS || UNITY_VISIONOS && !UNITY_EDITOR
+#if (UNITY_VISIONOS || UNITY_IOS) && !UNITY_EDITOR
         // Continuously request latest variables
         // (done this way since we must await UnitySendMessage
         // from Swift, which OnMessageReceived picks up)
